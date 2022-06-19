@@ -1,0 +1,12 @@
+stages:
+  download_data:
+    cmd: mkdir download; cd download/; wget -r https://clowder.edap-cluster.com/api/datasets/6148a429e4b0b85abf323988/download; mv clowder.edap-cluster.com/api/datasets/6148a429e4b0b85abf323988/download download.zip; rm -r clowder.edap-cluster.com; unzip download.zip; rm download.zip; unzip INVITRODB_V3_4_LEVEL5.zip; rm INVITRODB_V3_4_LEVEL5.zip
+    outs:
+    - download/
+  build_data:
+    cmd: Rscript R/build.R
+    deps:
+    - download/
+    outs:
+    - data/
+
