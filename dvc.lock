@@ -10,19 +10,6 @@ stages:
       md5: c0a5c6140cf0ec0efbb7bfaa84db2ef6.dir
       size: 2359233639
       nfiles: 21
-  unzip_data:
-    cmd: mkdir cache; mv download/clowder.edap-cluster.com/api/datasets/6148a429e4b0b85abf323988/download
-      cache/download.zip; unzip cache/download.zip
-    deps:
-    - path: download/
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
-    outs:
-    - path: cache/
-      md5: 523ecdde771b163dfded980e4a591f1b.dir
-      size: 611694881
-      nfiles: 1
   build_data:
     cmd: Rscript R/build.R
     deps:
