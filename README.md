@@ -7,7 +7,7 @@
 
 ## Usage
 ```{R}
-biobricks::install_brick("comptox")
+biobricks::brick_install("comptox")
 biobricks::brick_pull("comptox")
 biobricks::brick_load("comptox")
 ```
