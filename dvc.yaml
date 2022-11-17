@@ -1,12 +1,19 @@
 stages:
   download_data:
-    cmd: mkdir download; cd download/; wget -r https://clowder.edap-cluster.com/api/datasets/6148a429e4b0b85abf323988/download; mv clowder.edap-cluster.com/api/datasets/6148a429e4b0b85abf323988/download download.zip; rm -r clowder.edap-cluster.com; unzip download.zip; rm download.zip; unzip INVITRODB_V3_4_LEVEL5.zip; rm INVITRODB_V3_4_LEVEL5.zip
-    outs:
-    - download/
-  build_data:
-    cmd: Rscript R/build.R
+    cmd: bash stages/1_download.sh 
     deps:
-    - download/
+      - stages/1_download.sh
+      - stages/check_listofchemicals.py
     outs:
-    - data/
+      - download/
+      - download/DSSTox_Identifiers.csv
+      - download/list_chemicals/
+  build_data:
+    cmd: bash stages/2_build.sh 
+    deps:
+      - download/
+      - download/DSSTox_Identifiers.csv
+      - download/list_chemicals/
+    outs:
+      - brick/
 
