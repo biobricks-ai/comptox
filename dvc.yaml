@@ -1,19 +1,16 @@
 stages:
-  download_data:
+  download:
     cmd: bash stages/1_download.sh 
     deps:
       - stages/1_download.sh
       - stages/check_listofchemicals.py
     outs:
-      - download/
-      - download/DSSTox_Identifiers.csv
-      - download/list_chemicals/
-  build_data:
+      - download
+  build:
     cmd: bash stages/2_build.sh 
     deps:
-      - download/
-      - download/DSSTox_Identifiers.csv
-      - download/list_chemicals/
+      - stages/2_build.sh
+      - stages/csv2parquet.py
+      - download
     outs:
-      - brick/
-
+      - brick

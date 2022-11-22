@@ -22,3 +22,35 @@ stages:
       md5: df1abb8a56f7916d2d5cdbfa60fc0115.dir
       size: 706944770
       nfiles: 21
+  download:
+    cmd: bash stages/1_download.sh
+    deps:
+    - path: stages/1_download.sh
+      md5: 52034b7eba7e13949eae74f27ae1d82a
+      size: 1828
+    - path: stages/check_listofchemicals.py
+      md5: 97b67914de4885eed3eaa4388b1a918a
+      size: 1563
+    outs:
+    - path: download
+      md5: da781e43c29b3253d485de53d3d5160d.dir
+      size: 206993176
+      nfiles: 1
+  build:
+    cmd: bash stages/2_build.sh
+    deps:
+    - path: download
+      md5: da781e43c29b3253d485de53d3d5160d.dir
+      size: 206993176
+      nfiles: 1
+    - path: stages/2_build.sh
+      md5: b979dc407a5ff08264df8f376bac37a8
+      size: 435
+    - path: stages/csv2parquet.py
+      md5: d911282cd61a5fb266b3fd58c05be902
+      size: 1412
+    outs:
+    - path: brick
+      md5: 84d8f0e2199ff84226bf28f0a5f54e29.dir
+      size: 109598288
+      nfiles: 1

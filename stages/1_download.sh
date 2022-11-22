@@ -36,7 +36,7 @@ then
     echo "Directory $downloadpath/list_chemicals exists." 
 else
     echo "Error: Directory $downloadpath/list_chemicals does not exists. => create folder"
-    mkdir $downloadpath/;list_chemicals
+    mkdir $downloadpath/list_chemicals
 fi
 
 
