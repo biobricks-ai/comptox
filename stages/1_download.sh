@@ -6,7 +6,6 @@ echo "Local path: $localpath"
 
 downloadpath="$localpath/download"
 echo "Download path: $downloadpath"
-mkdir -p "$downloadpath"
 cd $downloadpath
 
 

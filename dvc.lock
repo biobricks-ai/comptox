@@ -25,24 +25,30 @@ stages:
   download:
     cmd: bash stages/1_download.sh
     deps:
+    - path: download/chemical-lists-2022-11-17.csv
+      md5: cf6742e84206e490110fa15da18ee38d
+      size: 315332
+    - path: download/list_chemicals
+      md5: 6a355d3c02da7761ef75da11f4445849.dir
+      size: 557228971
+      nfiles: 416
     - path: stages/1_download.sh
-      md5: 52034b7eba7e13949eae74f27ae1d82a
-      size: 1828
+      md5: 003bfc3371113746ac1b52bb659a939c
+      size: 1803
     - path: stages/check_listofchemicals.py
       md5: 97b67914de4885eed3eaa4388b1a918a
       size: 1563
     outs:
-    - path: download
-      md5: da781e43c29b3253d485de53d3d5160d.dir
+    - path: download/DSSTox_Identifiers.csv
+      md5: f08a55626acece0f8ca9598801a8bfa0
       size: 206993176
-      nfiles: 1
   build:
     cmd: bash stages/2_build.sh
     deps:
     - path: download
-      md5: da781e43c29b3253d485de53d3d5160d.dir
-      size: 206993176
-      nfiles: 1
+      md5: d30ce46f49781669b68f28417c3ced21.dir
+      size: 961002761
+      nfiles: 419
     - path: stages/2_build.sh
       md5: b979dc407a5ff08264df8f376bac37a8
       size: 435
@@ -51,6 +57,6 @@ stages:
       size: 1412
     outs:
     - path: brick
-      md5: 84d8f0e2199ff84226bf28f0a5f54e29.dir
-      size: 109598288
-      nfiles: 1
+      md5: df230e9c2a00007dcdd43785725387ac.dir
+      size: 392643880
+      nfiles: 418

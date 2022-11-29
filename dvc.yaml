@@ -4,8 +4,10 @@ stages:
     deps:
       - stages/1_download.sh
       - stages/check_listofchemicals.py
+      - download/list_chemicals
+      - download/chemical-lists-2022-11-17.csv
     outs:
-      - download
+      - download/DSSTox_Identifiers.csv
   build:
     cmd: bash stages/2_build.sh 
     deps:
