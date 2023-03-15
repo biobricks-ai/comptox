@@ -15,6 +15,7 @@ cd $downloadpath
 #### save the file at $downloadpath
 
 # check if file exist
+# TODO this step needs to be automated
 echo "Lists of chemicals need to be downloaded at: https://comptox.epa.gov/dashboard/chemical-lists"
 
 #1. check if all of the chemical files are downloaded
@@ -34,13 +35,13 @@ if [ -d "$downloadpath/list_chemicals" ]
 then
     echo "Directory $downloadpath/list_chemicals exists." 
 else
-    echo "Error: Directory $downloadpath/list_chemicals does not exists. => create folder"
+    echo "Directory $downloadpath/list_chemicals does not exists. => create folder"
     mkdir $downloadpath/list_chemicals
 fi
 
 
 cd $localpath
-python ./stages/check_listofchemicals.py $p_list_chem $downloadpath/list_chemicals/
+python3 ./stages/check_listofchemicals.py $p_list_chem $downloadpath/list_chemicals/
 
 
 #3. check if the all dsstox file exist

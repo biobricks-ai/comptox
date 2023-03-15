@@ -11,7 +11,7 @@ downloadpath="$localpath/download"
 echo "Download path: $downloadpath"
 
 # Create brick directory
-brickpath="$localpath/brick"
+brickpath="$localpath/staging"
 echo "Brick path: $brickpath"
 
 # Process raw files and create parquet files in parallel

@@ -1,18 +1,8 @@
 stages:
   download:
-    cmd: bash stages/1_download.sh 
+    cmd: Rscript stages/1_download.R
     deps:
-      - stages/1_download.sh
-      - stages/check_listofchemicals.py
-      - download/list_chemicals
-      - download/chemical-lists-2022-11-17.csv
+      - stages/1_download.R
+      - https://clowder.edap-cluster.com/datasets/61147fefe4b0856fdc65639b#folderId=61148181e4b0856fdc65643f&page=0
     outs:
-      - download/DSSTox_Identifiers.csv
-  build:
-    cmd: bash stages/2_build.sh 
-    deps:
-      - stages/2_build.sh
-      - stages/csv2parquet.py
-      - download
-    outs:
-      - brick
+      - brick/dsstox_identifiers.parquet
