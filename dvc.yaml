@@ -3,6 +3,12 @@ stages:
     cmd: Rscript stages/1_download.R
     deps:
       - stages/1_download.R
-      - https://clowder.edap-cluster.com/datasets/61147fefe4b0856fdc65639b#folderId=61148181e4b0856fdc65643f&page=0
     outs:
       - brick/dsstox_identifiers.parquet
+  api_EPA:
+    cmd: python stages/2_API_EPA.py
+    deps:
+      - stages/2_API_EPA.py
+    outs:
+      - brick/chemical_lists.parquet
+      - brick/cchemicals_by_list.parquet
