@@ -23,3 +23,9 @@ stages:
     - path: brick/chemicals_by_list.parquet
       md5: c528ed6dfc05f1c71d41f698830a615d
       size: 235210634
+  update_check:
+    cmd: bash stages/0_check_html.sh
+    outs:
+    - path: cache/comptox/comptox_realease.txt
+      md5: 96ac25f0b97a9225adb50c033a9d3227
+      size: 128266
