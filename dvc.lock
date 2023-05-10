@@ -10,3 +10,16 @@ stages:
     - path: brick/dsstox_identifiers.parquet
       md5: b9459764a7484f4d374f6b1056f16826
       size: 109604999
+  api_EPA:
+    cmd: python stages/2_API_EPA.py
+    deps:
+    - path: stages/2_API_EPA.py
+      md5: 653eb6c214569a72b1ef76ca2283fdba
+      size: 2204
+    outs:
+    - path: brick/chemical_lists.parquet
+      md5: 75875a5d4ced9895c9165bf4b011a4ab
+      size: 160201
+    - path: brick/chemicals_by_list.parquet
+      md5: c528ed6dfc05f1c71d41f698830a615d
+      size: 235210634

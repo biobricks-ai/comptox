@@ -1,4 +1,8 @@
 stages:
+  update_check:
+    cmd: bash stages/0_check_html.sh
+    outs:
+      - cache/comptox/comptox_realease.txt
   download:
     cmd: Rscript stages/1_download.R
     deps:
@@ -11,4 +15,4 @@ stages:
       - stages/2_API_EPA.py
     outs:
       - brick/chemical_lists.parquet
-      - brick/cchemicals_by_list.parquet
+      - brick/chemicals_by_list.parquet
