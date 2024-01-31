@@ -14,8 +14,11 @@
 
 
 ## Usage
-```{R}
-biobricks::brick_install("comptox")
-biobricks::brick_pull("comptox")
-biobricks::brick_load("comptox")
+```sh
+pip install biobricks
+biobricks configure
+biobricks install comptox
+biobricks assets comptox 
 ```
+
+Once you have installed comptox you can access it's assets in python or R. See docs.biobricks.ai. 
